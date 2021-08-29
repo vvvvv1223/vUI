@@ -33,13 +33,15 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "@vue/standard"
+      "plugin:vue/essential"
     ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "semi": 0,
+      "space-before-function-paren": ["error", "never"]
+    }
   },
   "browserslist": [
     "> 1%",
