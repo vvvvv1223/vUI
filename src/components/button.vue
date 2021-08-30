@@ -1,6 +1,14 @@
 <template>
   <div>
-    <button class="vv-button" :class="[`vv-button-${type}`]">
+    <button class="vv-button" :class="[`vv-button-${type}`, {
+      'is-plain':plain,
+      'is-round':round,
+      'is-circle':circle,
+      'is-disabled':disabled
+    }]"
+    @click="handleClick"
+    :disabled="disabled"
+    >
       <span>
         <slot></slot>
       </span>
@@ -16,10 +24,32 @@ export default {
     type: {
       type: String,
       default: 'default' // 不传默认为default类型
+    },
+    plain: {
+      type: Boolean,
+      default: false
+    },
+    round: {
+      type: Boolean,
+      default: false
+    },
+    circle: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+  },
+  methods: {
+    // 定义一个点击事件 这个点击事件的作用是调用父组件中的点击事件 并回调
+    handleClick(e) {
+      this.$emit('',e);
     }
   },
   created() { 
-    console.log(this.type);
+    // console.log(this.$slots);
   }
 }
 </script>
@@ -110,6 +140,7 @@ export default {
     color: #fff;
   }
 }
+
 // 朴素按钮样式
 .vv-button.is-plain {
   &:hover,
