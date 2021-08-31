@@ -45,7 +45,7 @@ export default {
   methods: {
     // 定义一个点击事件 这个点击事件的作用是调用父组件中的点击事件 并回调
     handleClick(e) {
-      this.$emit('',e);
+      this.$emit('click',e);
     }
   },
   created() { 
